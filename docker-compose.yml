@@ -1,0 +1,28 @@
+version: '2'
+
+networks:
+  macvlan-radius:
+    external:
+      name: pihole_pihole_network
+services:
+
+ alpineradius:
+  build: .
+  container_name: alpine-radius
+  ports:
+   - "1812:1812/udp"
+   - "1813:1813"
+   - "18120:18120"
+  dns:
+   - 192.168.1.6
+  environment:
+  hostname: alpine-radius
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+   - "./clients.conf:/etc/raddb/clients.conf"
+   - "./radius-cert:/etc/freeradius/certs"
+   - './radius-db:/opt/db/'
+    
+  networks:
+   macvlan-radius:
+    ipv4_address: 192.168.1.51
