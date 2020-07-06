@@ -19,8 +19,8 @@ services:
   volumes:
    - /etc/localtime:/etc/localtime:ro
    #- "./clients.conf:/etc/raddb/clients.conf"
-   #- "./radius-cert:/etc/freeradius/certs"
-   - './radius-db:/opt/db/'
+   #- "./radius-cert:/etc/raddb/certs"
+   - './radius-db:/etc/raddb/'
     
   networks:
    macvlan-radius:
