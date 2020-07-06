@@ -14,4 +14,4 @@ EXPOSE \
     1813/udp \
     18120
 
-CMD ["radiusd","-xx","-f"]
+CMD ["radiusd","-XX","-f"]
