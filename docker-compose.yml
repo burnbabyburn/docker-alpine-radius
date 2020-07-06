@@ -19,7 +19,7 @@ services:
   volumes:
    - /etc/localtime:/etc/localtime:ro
    #- "./clients.conf:/etc/raddb/clients.conf"
-   - "./radius-cert:/etc/freeradius/certs"
+   #- "./radius-cert:/etc/freeradius/certs"
    - './radius-db:/opt/db/'
     
   networks:
