@@ -10,7 +10,6 @@ RUN apk update && apk upgrade && \
     make server.pem && \
     make client.pem && \
     openssl dhparam -out dh 4096
-	chown -R 
 
 #VOLUME \
 #    /opt/db/ \
