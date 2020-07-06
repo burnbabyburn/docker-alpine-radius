@@ -9,7 +9,7 @@ RUN apk update && apk upgrade && \
     make ca.der && \
     make server.pem && \
     make client.pem && \
-    openssl dhparam -check -text -5 512 -out dh
+    openssl dhparam -check -text -5 512 -out /etc/raddb/certs/dh
 
 #VOLUME \
 #    /opt/db/ \
