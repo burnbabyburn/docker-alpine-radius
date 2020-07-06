@@ -1,7 +1,4 @@
-FROM alpine:3
-MAINTAINER Marcel Maatkamp <m.maatkamp@gmail.com>
-
-WORKDIR /projects
+FROM alpine
 
 RUN apk update && apk upgrade && \
     apk add --update freeradius freeradius-sqlite freeradius-radclient sqlite openssl-dev && \
