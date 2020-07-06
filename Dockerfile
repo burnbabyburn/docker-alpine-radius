@@ -1,9 +1,15 @@
 FROM alpine
 
 RUN apk update && apk upgrade && \
-    apk add --update freeradius freeradius-eap openssl freeradius-sqlite freeradius-radclient sqlite && \
+    apk add --update freeradius freeradius-eap make openssl freeradius-sqlite freeradius-radclient sqlite && \
     chgrp radius  /usr/sbin/radiusd && chmod g+rwx /usr/sbin/radiusd && \
-    rm /var/cache/apk/*
+    rm /var/cache/apk/* \
+    cd /etc/raddb/certs/ && \
+    make ca.pem && \
+    make ca.der && \
+    make server.pem && \
+    make client.pem && \
+    openssl dhparam -check -text -5 512 -out dh
 
 #VOLUME \
 #    /opt/db/ \
