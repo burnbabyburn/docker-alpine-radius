@@ -9,7 +9,8 @@ RUN apk update && apk upgrade && \
     make ca.der && \
     make server.pem && \
     make client.pem && \
-    openssl dhparam -check -text -5 512 -out /etc/raddb/certs/dh
+    openssl dhparam -out dh 4096
+	chown -R 
 
 #VOLUME \
 #    /opt/db/ \
