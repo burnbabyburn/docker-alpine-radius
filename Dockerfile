@@ -1,7 +1,7 @@
 FROM alpine
 
 RUN apk update && apk upgrade && \
-    apk add --update freeradius freeradius-eap freeradius-sqlite freeradius-radclient sqlite && \
+    apk add --update freeradius freeradius-eap openssl freeradius-sqlite freeradius-radclient sqlite && \
     chgrp radius  /usr/sbin/radiusd && chmod g+rwx /usr/sbin/radiusd && \
     rm /var/cache/apk/*
 
@@ -14,4 +14,5 @@ EXPOSE \
     1813/udp \
     18120
 
+COPY /etc /etc/
 CMD ["radiusd","-XX","-f"]
