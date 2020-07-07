@@ -9,7 +9,7 @@ RUN apk update && apk upgrade && \
     make ca.der && \
     make server.pem && \
     make client.pem && \
-    openssl dhparam -out dh 4096
+    openssl dhparam -out dh 2048
 
 #VOLUME \
 #    /opt/db/ \
